@@ -8135,3 +8135,13 @@ Processing by BooksController#show as HTML
 Completed 200 OK in 78ms (Views: 70.1ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/books/8" for 127.0.0.1 at 2017-10-22 02:10:40 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 8 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/book
+  Rendered books/show.html.erb within layouts/book (6.6ms)
+Completed 200 OK in 89ms (Views: 77.5ms | ActiveRecord: 2.5ms)
+
+
