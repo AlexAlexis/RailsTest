@@ -1,0 +1,19 @@
+<% if !flash[:notice].blank? %>
+    <div class="mx-auto card myflash" style="width: 200px;">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+<h1 class="my-text myh1"><strong><%= @book.name %></strong></h1>
+<p>Rating: <%= @book.rating %></p>
+  <div class="float-right w-25 p-3">
+    <%= button_to('Take', tbutton_book_path, method: 'get', class: 'btn-lg btn-success TakeButton') %>
+  </div>
+  <div class="float-right w-25 p-3">
+    <%= button_to('Give Back', dbutton_book_path, method: 'get', class: 'btn-lg btn-danger TakeButton') %>
+  </div>
+  <div class="my-text2">
+  <%= image_tag @book.image, class: 'myImg' %>
+  <div class="mytext3">
+  <%= truncate(@book.description, length: 3300, escape: false) {link_to('continue', '#')} %>
+  </div>
+  </div>

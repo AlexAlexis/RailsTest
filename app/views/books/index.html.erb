@@ -1,0 +1,64 @@
+
+<% if !flash[:notice].blank? %>
+    <div class="mx-auto card myflash" style="width: 200px;">
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+
+<h1 class='my-text'>Top rated books:</h1>
+ <table class='table table-striped text-center'>
+  <thead>
+    <tr>
+      <th class='text-center'>Book name</th>
+      <th class="text-center">Author</th>
+      <th class="text-center">Status</th>
+      <th class='text-center'></th>
+    </tr>
+  </thead>
+  <% @top.each do |book| %>
+  <tbody>
+    <tr>
+      <!--- <th scope="row"><%= link_to(book.name, book, class: 'mylink') %></th> -->
+      <td><%= link_to(book.name, book, class: 'mylink') %></td>
+      <td><%= book.author %></td>
+      <td>
+        <strong><%= book.take %></strong>
+              <%= book.usertake %>
+      </td>
+      <td><%= book.rating %></td>
+      <td><%= button_to('Edit', edit_book_path(book), method: 'get', class: 'btn btn-primary btn-sm') %></td>
+      <td><%= link_to('Delete', delete_book_path(book), method: 'get', class: 'btn btn-danger btn-sm', data: {confirm: "Quit?"}) %></td>
+    </tr>
+  </tbody>
+  <% end %>  
+</table>
+<h1 class='mylist text-center'>All available books:</h1>
+<table class='table table-striped'>
+  <thead>
+  <tr>
+    <th>Position</th>
+    <th>Book name</th>
+    <th>Author</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <% @books.each_with_index do |book, index| %>
+      <tbody>
+      <tr>
+        <th scope='row'><%= index + 1 %></th>
+        <td><%= link_to(book.name, book, class: 'links') %></td>
+        <td><%= book.author %></td>
+        <td><%= book.status %></td>
+        <td><%= current_user.id %></td>
+        <td>
+          <%= button_to('Edit', edit_book_path(book), method: 'get', class: 'btn btn-primary btn-sm') %> </td>
+        <td><%= link_to('Delete', delete_book_path(book), method: 'get', class: 'btn btn-danger btn-sm') %></td>
+
+      </tr>
+      </tbody>
+  <% end %>
+</table>
+<div class='bottom'>
+<%= will_paginate @books, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inner_window: 1, outer_window: 0 %>
+</div>
