@@ -5,11 +5,13 @@
 <% end %>
 <h1 class="my-text myh1"><strong><%= @book.name %></strong></h1>
 <p>Rating: <%= @book.rating %></p>
+<% if @book.can_take?(current_user) %>
   <div class="float-right w-25 p-3">
-    <%= button_to('Take', tbutton_book_path, method: 'get', class: 'btn-lg btn-success TakeButton') %>
+    <%= button_to('Take', take_book_path, method: 'get', class: 'btn-lg btn-success TakeButton') %>
   </div>
+<% end %>
   <div class="float-right w-25 p-3">
-    <%= button_to('Give Back', dbutton_book_path, method: 'get', class: 'btn-lg btn-danger TakeButton') %>
+    <%= button_to('Give Back', return_book_path, method: 'get', class: 'btn-lg btn-danger TakeButton') %>
   </div>
   <div class="my-text2">
   <%= image_tag @book.image, class: 'myImg' %>
@@ -17,3 +19,44 @@
   <%= truncate(@book.description, length: 3300, escape: false) {link_to('continue', '#')} %>
   </div>
   </div>
+
+
+  <h1 class='my-text'>History:</h1>
+ <table class='table table-striped text-center'>
+  <thead>
+    <tr>
+      <th class='text-center'>Username</th>
+      <th class="text-center">Take</th>
+      <th class="text-center">Return</th>
+      <th class='text-center'></th>
+    </tr>
+  </thead>
+  <% @history.each do |history| %>
+  <tbody>     
+    <tr>     
+      <td><%= history.whotake %></td>
+      <td><%= history.whentake %></td>
+      <td><%= history.whenreturn %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+   
+  </tbody>
+  <% end %> 
+</table>
+
+  <%= form_tag(controller: 'hist1s', action: 'index') do %>
+     <tbody>     
+    <tr>     
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+   
+  </tbody>
+  <% end %> 
+</table>

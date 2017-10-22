@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020094204) do
+ActiveRecord::Schema.define(version: 20171022122118) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", limit: 50
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20171020094204) do
     t.datetime "image_updated_at"
     t.string "take", default: "Avaliable"
     t.string "usertake"
+  end
+
+  create_table "hist1s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "whotake"
+    t.string "whentake"
+    t.string "whenreturn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "takenby"
+    t.integer "take"
+    t.integer "return"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
