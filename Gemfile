@@ -36,6 +36,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap4', '~> 0.1.2'
 gem 'ratyrate'
+#gem 'pg'
 
 
 # Use Capistrano for deployment
