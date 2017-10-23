@@ -48,6 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  url: <%= ENV['DATABASE_URL'] %>
   adapter: pg
   encoding: utf-8
   database: books_production

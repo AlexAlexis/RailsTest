@@ -12609,3 +12609,558 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 70ms (Views: 58.8ms | ActiveRecord: 2.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-10-22 19:05:53 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 27.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:23:12 +0300
+  [1m[35m (34.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 1708ms (Views: 1583.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2017-10-23 17:23:18 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (1.2ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 102ms (Views: 54.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/books/10/take" for 127.0.0.1 at 2017-10-23 17:23:20 +0300
+Processing by BooksController#take as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (67.8ms)[0m  [1m[33mUPDATE `books` SET `usertake` = 'alexalexis12@inbox.ru', `take` = 'Is taken by: ', `updated_at` = '2017-10-23 14:23:20' WHERE `books`.`id` = 10[0m
+  [1m[35m (242.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `hist1s` (`whotake`, `created_at`, `updated_at`) VALUES ('alexalexis12@inbox.ru', '2017-10-23 14:23:20', '2017-10-23 14:23:20')[0m
+  [1m[35m (59.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 402ms (ActiveRecord: 373.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:23:20 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 60ms (Views: 46.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:23:28 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 49ms (Views: 42.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2017-10-23 17:23:30 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 89ms (Views: 78.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/books/10/return" for 127.0.0.1 at 2017-10-23 17:23:31 +0300
+Processing by BooksController#return as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `books` SET `usertake` = NULL, `take` = 'Avaliable', `updated_at` = '2017-10-23 14:23:31' WHERE `books`.`id` = 10[0m
+  [1m[35m (147.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mHist1 Load (0.6ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` ORDER BY `hist1s`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `hist1s` SET `whenreturn` = '2017-10-23 14:23:31 UTC', `updated_at` = '2017-10-23 14:23:31' WHERE `hist1s`.`id` = 16[0m
+  [1m[35m (48.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 222ms (ActiveRecord: 201.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:23:31 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 55ms (Views: 44.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:23:34 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 42ms (Views: 37.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/books/9" for 127.0.0.1 at 2017-10-23 17:23:50 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 9 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (0.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 53ms (Views: 42.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/books/9" for 127.0.0.1 at 2017-10-23 17:35:59 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 9 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 65ms (Views: 37.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/books/9" for 127.0.0.1 at 2017-10-23 17:36:01 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 9 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 51ms (Views: 41.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-10-23 17:36:02 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/new.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 232ms (Views: 114.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2017-10-23 17:36:25 +0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KUwj/oAFMIkSLTjlkPhR6Rek7KTTUnn57TVrNHcSXob72McywnsnKCJMHVPaPU8ldwzvoxJJjUWcm8gCvy5h4g==", "book"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f28681562c8 @tempfile=#<Tempfile:/tmp/RackMultipart20171023-5410-6gle4a.png>, @original_filename="2.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"book[image]\"; filename=\"2.png\"\r\nContent-Type: image/png\r\n">, "name"=>"123", "rating"=>"2", "author"=>"Author 5", "description"=>"BOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOO"}, "commit"=>"Crate Book"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Command :: file -b --mime '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-czwes3.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]'
+Command :: convert '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]' -auto-orient -resize "500x500" '/tmp/89181b8a3859f9a6f5e719f2d22dc23120171023-5410-1uihnmc'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]'
+Command :: convert '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-1v0wy62.png[0]' -auto-orient -resize "900x900>" '/tmp/89181b8a3859f9a6f5e719f2d22dc23120171023-5410-4et68y'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/c81e728d9d4c2f636f067f89cc14862c20171023-5410-n88hdb.png'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `books` (`name`, `rating`, `description`, `author`, `created_at`, `updated_at`, `image_file_name`, `image_content_type`, `image_file_size`, `image_updated_at`) VALUES ('123', 2, 'BOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOOBOOO', 'Author 5', '2017-10-23 14:36:26', '2017-10-23 14:36:26', '2.png', 'image/png', 579290, '2017-10-23 14:36:25')[0m
+  [1m[35m (68.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1088ms (ActiveRecord: 69.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:36:26 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 59ms (Views: 44.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:36:30 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 64ms (Views: 50.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/books/12" for 127.0.0.1 at 2017-10-23 17:36:37 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 12 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (1.7ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 83ms (Views: 67.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/books/12/take" for 127.0.0.1 at 2017-10-23 17:36:38 +0300
+Processing by BooksController#take as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 12 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE `books` SET `usertake` = 'alexalexis12@inbox.ru', `take` = 'Is taken by: ', `updated_at` = '2017-10-23 14:36:38' WHERE `books`.`id` = 12[0m
+  [1m[35m (317.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `hist1s` (`whotake`, `created_at`, `updated_at`) VALUES ('alexalexis12@inbox.ru', '2017-10-23 14:36:38', '2017-10-23 14:36:38')[0m
+  [1m[35m (397.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 752ms (ActiveRecord: 721.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:36:39 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 53ms (Views: 40.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:36:56 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 37ms (Views: 31.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:38:09 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 111ms (Views: 94.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:38:11 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 41ms (Views: 36.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books/1/delete" for 127.0.0.1 at 2017-10-23 17:38:17 +0300
+Processing by BooksController#delete as HTML
+  Parameters: {"authenticity_token"=>"JZ8MnB22zvw9JVCLnW4QGvKs5u0SVQnMqJiWkb+iVmuGrdUaZtvuWbUwgHACtEAj/V5Ex5YXXNX3MR8TfFYfGA==", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:38:17 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 42ms (Views: 38.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:38:19 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 37ms (Views: 30.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:41:52 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 39ms (Views: 33.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:42:19 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 60ms (Views: 30.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/books/1/delete" for 127.0.0.1 at 2017-10-23 17:42:21 +0300
+Processing by BooksController#delete as HTML
+  Parameters: {"authenticity_token"=>"QLPkR/dy4XlQJVtj/pZSO2z7HNJLN69YLGdiLREXgOvjgT3BjB/B3Ngwi5hhTAICYwm++M91+kFzzuuv0uPJmA==", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:42:21 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:42:51 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 54ms (Views: 30.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/books/1/delete" for 127.0.0.1 at 2017-10-23 17:42:54 +0300
+Processing by BooksController#delete as HTML
+  Parameters: {"authenticity_token"=>"apky49PGS1PmDl+WpDxiV8M+BHnCHnJtH5CADqNBV/3Jq+tlqKtr9m4bj2075jJuzMymU0ZcJ3RAOQmMYLUejg==", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:42:54 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books/1/delete" for 127.0.0.1 at 2017-10-23 17:43:16 +0300
+Processing by BooksController#delete as HTML
+  Parameters: {"authenticity_token"=>"nlpYSL0UqI64t/DahmFTe5Y3KIpNSYpMkJa1QlPLS0A9aIHOxnmIKzCiICEZuwNCmcWKoMkL31XPPzzAkD8CMw==", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:43:16 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:45:21 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 60ms (Views: 48.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2017-10-23 17:45:27 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (1.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 86ms (Views: 66.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/books/10/take" for 127.0.0.1 at 2017-10-23 17:45:28 +0300
+Processing by BooksController#take as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `books` SET `usertake` = 'alexalexis12@inbox.ru', `take` = 'Is taken by: ', `updated_at` = '2017-10-23 14:45:28' WHERE `books`.`id` = 10[0m
+  [1m[35m (125.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `hist1s` (`whotake`, `created_at`, `updated_at`) VALUES ('alexalexis12@inbox.ru', '2017-10-23 14:45:29', '2017-10-23 14:45:29')[0m
+  [1m[35m (418.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 579ms (ActiveRecord: 549.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:45:29 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:45:32 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 72ms (Views: 56.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2017-10-23 17:45:36 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (0.8ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 70ms (Views: 60.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/books/10/return" for 127.0.0.1 at 2017-10-23 17:45:36 +0300
+Processing by BooksController#return as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `books` SET `usertake` = NULL, `take` = 'Avaliable', `updated_at` = '2017-10-23 14:45:36' WHERE `books`.`id` = 10[0m
+  [1m[35m (450.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mHist1 Load (0.6ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` ORDER BY `hist1s`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `hist1s` SET `whenreturn` = '2017-10-23 14:45:36 UTC', `updated_at` = '2017-10-23 14:45:37' WHERE `hist1s`.`id` = 18[0m
+  [1m[35m (343.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 817ms (ActiveRecord: 798.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:45:37 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 55ms (Views: 42.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:45:55 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 105ms (Views: 90.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/books/10" for 127.0.0.1 at 2017-10-23 17:46:57 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s`[0m
+  Rendered books/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 88ms (Views: 76.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/books/10/take" for 127.0.0.1 at 2017-10-23 17:46:58 +0300
+Processing by BooksController#take as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 10 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE `books` SET `usertake` = 'alexalexis12@inbox.ru', `take` = 'Is taken by: ', `updated_at` = '2017-10-23 14:46:58' WHERE `books`.`id` = 10[0m
+  [1m[35m (457.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `hist1s` (`whotake`, `created_at`, `updated_at`) VALUES ('alexalexis12@inbox.ru', '2017-10-23 14:46:58', '2017-10-23 14:46:58')[0m
+  [1m[35m (47.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 536ms (ActiveRecord: 510.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:46:59 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 58ms (Views: 45.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:47:02 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 67ms (Views: 53.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/books/9/delete" for 127.0.0.1 at 2017-10-23 17:47:08 +0300
+Processing by BooksController#delete as HTML
+  Parameters: {"authenticity_token"=>"xJsKaullPjZERPgvpxR4ME698x+KCOZbXge+u7ES60xnqdPskggek8xRKNQ4zigJQU9RNQ5Ks0IBrjc5cuaiPw==", "id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 9 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:47:08 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-23 17:47:11 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 101ms (Views: 84.8ms | ActiveRecord: 4.7ms)
+
+

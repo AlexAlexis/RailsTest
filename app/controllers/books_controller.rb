@@ -47,17 +47,8 @@ class BooksController < ApplicationController
   def take
     @book = Book.find(params[:id])
     if @book.can_take? current_user
-      @book.update(take: 'Is taken by: ', usertake: current_user.email)
-    # @book.take = 'Is taken by: '
-    # @book.usertake = current_user.email
-    # @book.save
-      Hist1.create(whotake: current_user.email)
-    # history = Hist1.new
-    # history.whotake = current_user.email
-    # history.save
-    # history = Hist1.last
-    # history.whentake = history.created_at
-    # history.save
+      @book.update(take: 'Is taken by: ', usertake: current_user.email)   
+      Hist1.create(whotake: current_user.email)    
       redirect_to(root_path)
       flash[:notice] = "Hope you will Have a good time reading this shit"
     else
