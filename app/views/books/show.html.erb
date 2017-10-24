@@ -5,9 +5,11 @@
     <%= button_to('Take', take_book_path, method: 'get', class: 'btn-lg btn-success TakeButton') %>
   </div>
 <% end %>
+<% if @book.can_return?(current_user.email) %>
   <div class="float-right w-25 p-3">
     <%= button_to('Give Back', return_book_path, method: 'get', class: 'btn-lg btn-danger TakeButton') %>
   </div>
+  <% end %>
   <div class="my-text2">
   <%= image_tag @book.image, class: 'myImg' %>
   <div class="mytext3">
@@ -16,7 +18,7 @@
   </div>
 
 
-  <h1 class='my-text'>History:</h1>
+  
  <table class='table table-striped text-center'>
   <thead>
     <tr>

@@ -12,6 +12,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  collation: utf8_general_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: alex1
   password: 12345
@@ -48,8 +49,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  url: <%= ENV['DATABASE_URL'] %>
-  encoding: utf-8
   database: books_production
   username: books
   password: <%= ENV['BOOKS_DATABASE_PASSWORD'] %>

@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20171022122118) do
     t.string "whotake"
     t.string "whentake"
     t.string "whenreturn"
+    t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_hist1s_on_book_id"
   end
 
   create_table "histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

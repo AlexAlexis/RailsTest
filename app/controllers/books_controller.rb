@@ -1,14 +1,15 @@
 class BooksController < ApplicationController
 
+  before_action :find_books, only: [:show, :edit, :update, 
+    :delete, :take, :return]
 
   def index
   	@books = Book.all.paginate(page: params[:page], per_page: 20)
     @top = Book.first_five
   end
 
-  def show
-   @book = Book.find(params[:id])
-   @history = Hist1.all   
+  def show   
+   @history = Hist1.where(book_id: @book.id)  
   end
 
   def new
@@ -19,22 +20,18 @@ class BooksController < ApplicationController
    	@book = Book.new(book_params)
     @book.save
   	redirect_to(root_path)
-
   end
 
-  def edit
-    @book = Book.find(params[:id])
+  def edit    
   end
 
-  def update
-    @book = Book.find(params[:id])
+  def update    
     @book = @book.update_attributes(book_params)
     redirect_to(root_path)
   end
 
-  def delete
-    @book = Book.find(params[:id])
-    if (@book.usertake == current_user.email || @book.usertake == nil)
+  def delete    
+    if @book.can_delete? current_user
       @book.destroy
       flash[:notice] = "Hope you did vise destroying #{@book.name}"
       redirect_to(root_path)
@@ -44,11 +41,11 @@ class BooksController < ApplicationController
     end
   end  
 
-  def take
-    @book = Book.find(params[:id])
+  def take    
     if @book.can_take? current_user
       @book.update(take: 'Is taken by: ', usertake: current_user.email)   
-      Hist1.create(whotake: current_user.email)    
+      Hist1.create(whotake: current_user.email, whentake: @book.created_at,
+        book_id: @book.id)    
       redirect_to(root_path)
       flash[:notice] = "Hope you will Have a good time reading this shit"
     else
@@ -57,15 +54,10 @@ class BooksController < ApplicationController
     end
   end
 
-  def return
-    @book = Book.find(params[:id])
-    if @book.usertake == current_user.email
-      @book.take = "Avaliable"
-      @book.usertake = nil
-      @book.save
-      history = Hist1.last
-      history.whenreturn = @book.updated_at
-      history.save
+  def return    
+    if @book.can_return? current_user.email
+      @book.update(take: 'avaliable', usertake: nil)
+      Hist1.last.update_attributes(whenreturn: @book.updated_at)      
       flash[:notice] = "Hope it was interesting!"
       redirect_to(root_path)
     else
@@ -78,6 +70,10 @@ class BooksController < ApplicationController
 
   def book_params
    params.require(:book).permit(:name, :author, :description, :image, :rating, :usertake, :take)
+  end
+
+  def find_books
+    @book = Book.find(params[:id])    
   end
 
 

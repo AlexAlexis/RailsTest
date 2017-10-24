@@ -3,7 +3,23 @@ class Book < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   scope :first_five, -> { order("rating DESC").first(5) }
 
+  has_many :hist1s
+
   def can_take?(user)
     usertake == user || usertake.nil?
   end
+
+  def can_return?(user)
+  	usertake == user # || usertake.present? <- no need
+  end
+
+  def can_delete?(user)
+    usertake == user || usertake == nil
+    
+  end
+
+
+  validates_presence_of :name
+  validates_presence_of :author
+  validates_presence_of :description
 end
