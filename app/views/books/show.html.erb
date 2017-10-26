@@ -16,8 +16,32 @@
   <%= truncate(@book.description, length: 3300, escape: false) {link_to('continue', '#')} %>
   </div>
   </div>
+ 
+  <div class="container">
+  <% @comment.each do |comment| %>
+  <div class="media">
+  <!-- <img class="mr-3" src="" alt="Generic placeholder image"> -->
+  <div class="media-body">
+    <h5 class="mt-0"><%= comment.username %></h5>
+    <%= comment.usertext %>
+   </div>
+   </div>
+   <% end %>
+   </div>
 
 
+  <%= form_tag(controller: 'books', action: 'create_comment', method: 'post') do %>
+  <div class="form-group">
+    <label class="form-control-label" for="formGroupExampleInput2"><%= current_user.email %></label>
+    <% @book_id == params[:book_id] %>
+    <%= text_area(:usertext, params[:usertext], class: 'form-control', size: '20x10', style: 'resize:none') %>       
+  </div>
+  <div class="text-center">
+   <%= submit_tag("Comment", :class => "btn btn-primary") %>
+  </div>   
+  </div>  
+</div>
+  <% end %>
   
  <table class='table table-striped text-center'>
   <thead>
@@ -42,8 +66,6 @@
   </tbody>
   <% end %> 
 </table>
-
-  <%= form_tag(controller: 'hist1s', action: 'index') do %>
      <tbody>     
     <tr>     
       <td></td>
@@ -52,8 +74,6 @@
       <td></td>
       <td></td>
       <td></td>
-    </tr>
-   
+    </tr>   
   </tbody>
-  <% end %> 
 </table>

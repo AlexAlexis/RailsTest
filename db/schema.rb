@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022122118) do
+ActiveRecord::Schema.define(version: 20171025094422) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", limit: 50
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20171022122118) do
     t.datetime "image_updated_at"
     t.string "take", default: "Avaliable"
     t.string "usertake"
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "book_id"
+    t.string "username"
+    t.string "usertext"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_comments_on_book_id"
   end
 
   create_table "hist1s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

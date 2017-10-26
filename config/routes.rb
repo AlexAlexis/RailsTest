@@ -16,9 +16,10 @@ Rails.application.routes.draw do
       get :delete
       get :take
       get :return
+      post :create_comment
     end
   end
-  get 'hist1s/index'
+  get 'comments/new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

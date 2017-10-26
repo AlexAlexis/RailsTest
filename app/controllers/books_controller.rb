@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   before_action :find_books, only: [:show, :edit, :update, 
-    :delete, :take, :return]
+    :delete, :take, :return, :create_comment]
 
   def index
   	@books = Book.all.paginate(page: params[:page], per_page: 20)
@@ -9,7 +9,8 @@ class BooksController < ApplicationController
   end
 
   def show   
-   @history = Hist1.where(book_id: @book.id)  
+   @history = Hist1.where(book_id: @book.id)
+   @comment = Comment.where(book_id: @book.id)    
   end
 
   def new
@@ -31,7 +32,7 @@ class BooksController < ApplicationController
   end
 
   def delete    
-    if @book.can_delete? current_user
+    if @book.can_delete? current_user.email
       @book.destroy
       flash[:notice] = "Hope you did vise destroying #{@book.name}"
       redirect_to(root_path)
@@ -44,7 +45,7 @@ class BooksController < ApplicationController
   def take    
     if @book.can_take? current_user
       @book.update(take: 'Is taken by: ', usertake: current_user.email)   
-      Hist1.create(whotake: current_user.email, whentake: @book.created_at,
+      Hist1.create(whotake: current_user.email, whentake: @book.updated_at,
         book_id: @book.id)    
       redirect_to(root_path)
       flash[:notice] = "Hope you will Have a good time reading this shit"
@@ -57,13 +58,20 @@ class BooksController < ApplicationController
   def return    
     if @book.can_return? current_user.email
       @book.update(take: 'avaliable', usertake: nil)
-      Hist1.last.update_attributes(whenreturn: @book.updated_at)      
+      @history = Hist1.where(book_id: @book.id).last.update_attributes(whenreturn: @book.updated_at)      
       flash[:notice] = "Hope it was interesting!"
       redirect_to(root_path)
     else
       flash[:notice] = "You can't give something that is not yours, it belongs to: #{@book.usertake}, wait for him to drop.'"
       redirect_to(book_path)
     end
+  end
+
+  def create_comment
+     @book_id = @book.id
+     @comment = Comment.create(username: current_user.email, book_id: @book_id,
+      usertext: params[:usertext])
+     redirect_to(book_path)   
   end
 
   private
@@ -76,6 +84,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])    
   end
 
-
+  def comment_params
+    #params.require(:comment).permit(:usertext)
+  end
 
 end

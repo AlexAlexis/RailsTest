@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   scope :first_five, -> { order("rating DESC").first(5) }
 
   has_many :hist1s
+  has_many :comments
 
   def can_take?(user)
     usertake == user || usertake.nil?
