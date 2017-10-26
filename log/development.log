@@ -23674,3 +23674,2034 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 110ms (Views: 94.9ms | ActiveRecord: 3.5ms)
 
 
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:02:31 +0300
+  [1m[35m (24.5ms)[0m  [1m[35mSET NAMES utf8 COLLATE utf8_general_ci,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (24.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (77.9ms)
+Completed 200 OK in 348ms (Views: 258.4ms | ActiveRecord: 30.6ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:02:47 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HIoOQwdYymN+XzXEDwN8T1Z0q9Kc7UghiOzaDj+8SUDyywYIeCZ/4+BgBDzNpJh7wge0ODNoIF6IjUYSELzCjg==", "usertext"=>["dsadsad"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dsadsad\"]', '2017-10-26 18:02:47', '2017-10-26 18:02:47')[0m
+  [1m[35m (87.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 112ms (ActiveRecord: 90.3ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:02:47 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.7ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 96ms (Views: 77.2ms | ActiveRecord: 4.4ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8 COLLATE utf8_general_ci,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8 COLLATE utf8_general_ci,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK(5034401897551617150, 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateComments (20171025094422)
+  [1m[35m (559.6ms)[0m  [1m[35mDROP TABLE `comments`[0m
+  [1m[35mSQL (44.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20171025094422'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK(5034401897551617150)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8 COLLATE utf8_general_ci,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK(5034401897551617150, 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateComments (20171025094422)
+  [1m[35m (459.7ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` int, `username` varchar(255), `usertext` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (297.9ms)[0m  [1m[35mCREATE  INDEX `index_comments_on_book_id`  ON `comments` (`book_id`) [0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171025094422')[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (38.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(5034401897551617150)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:15:38 +0300
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8 COLLATE utf8_general_ci,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 274ms (Views: 210.8ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:15:44 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fEgw1xYgST6orNUC9NJLf6HcnhdxLDc7fGwlrPhcOIEdb6aJrYyGdaOMFW3eaIAGGWVz4CDTHWhySUWrQDE0Bw==", "usertext"=>["Noob"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"Noob\"]', '2017-10-26 18:15:44', '2017-10-26 18:15:44')[0m
+  [1m[35m (139.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 193ms (ActiveRecord: 146.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:15:44 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 113ms (Views: 99.4ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:16:13 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c4sIVwUtIbt8ZAW40UyAp7FtwKw2yyBqAfe3P8hqLLQSrJ4JvoHu8HdExdf79kveCdQtW2c0CjkP0tc4cAcgMg==", "usertext"=>["Nothe that good as I expected..."], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"Nothe that good as I expected...\"]', '2017-10-26 18:16:13', '2017-10-26 18:16:13')[0m
+  [1m[35m (585.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 597ms (ActiveRecord: 587.0ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:16:14 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 100ms (Views: 86.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:21 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 80ms (Views: 66.6ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:17:26 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YgRHnswwIEmcdPLkraK8z1ChNCQs3x+PrwpvPn+uw28DI9HAd5zvApdUMouHGHe26BjZ030gNdyhLw85x8PP6Q==", "{:class=>\"form-control\", :size=>\"20x10\", :style=>\"resize:none\"}"=>"dasd", "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 703ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:26 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 106ms (Views: 83.3ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:17:33 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0CX0J9PRDAsXWo93JMDExSBY+Ah+86xXEdRU139m6CCxAmJ5aH3DQBx6TxgOeg+8mOEV/y8MhgQf8TTQxwvkpg==", "{:class=>\"form-control\", :size=>\"20x10\", :style=>\"resize:none\"}"=>"sadasdsafasfasfasf", "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 35ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:33 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:43 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 44ms (Views: 36.5ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:17:45 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xj6eT4Adv4xX5+9U/112Kg5InJLF3ZRbvg8c1m5l+v6nGQgRO7Fwx1zHLzvV571TtvFxZZQivgiwKnzR1gj2eA==", "usertext"=>["dasdas"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dasdas\"]', '2017-10-26 18:17:45', '2017-10-26 18:17:45')[0m
+  [1m[35m (142.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 157ms (ActiveRecord: 144.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:45 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 106ms (Views: 90.1ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:17:51 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K3H/r/iu2dcZtIo5hWg38ajQc86qVGL+EOi5tS71UXdKVmnxQwIWnBKUSlav0vyIEGmeOfurSK0ezdmylphd8Q==", "usertext"=>["2222222222222222213"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"2222222222222222213\"]', '2017-10-26 18:17:51', '2017-10-26 18:17:51')[0m
+  [1m[35m (176.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 192ms (ActiveRecord: 180.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:17:51 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 113ms (Views: 97.9ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:18:05 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIpQpw7dkXx/TRtQ7zPlcaRBCeUpgV2tXQROgW4cMChxrcb5tXFeN3Rt2z/FiS4IHPjkEnh+d/5TIS6G1nE8rg==", "usertext"=>["ads"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"ads\"]', '2017-10-26 18:18:05', '2017-10-26 18:18:05')[0m
+  [1m[35m (202.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 223ms (ActiveRecord: 206.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:18:05 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.1ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 112ms (Views: 94.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:18:46 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.2ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 28.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:18:49 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ckw5nuGCAONi/eDCj5h83L2y4DKen+T+Rx5iIcnZxMYTa6/AWi7PqGndIK2lIrelBQsNxc9gzq1JOwImcbTIQA==", "usertext"=>["dasdsadasd"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dasdsadasd\"]', '2017-10-26 18:18:49', '2017-10-26 18:18:49')[0m
+  [1m[35m (298.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 319ms (ActiveRecord: 303.4ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:18:49 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.1ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 134ms (Views: 119.6ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:19:10 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 95ms (Views: 77.2ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:19:13 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MlbhGXuLfI0RGznfZPIn1SdFiwz0/qDObuw1TxQAYWFTcXdHwCezxho7+bBOSOysn/xm+6UBip1gyVVIrG1t5w==", "usertext"=>{"{:class=>\"form-control\", :size=>\"20x10\", :style=>\"resize:none\"}"=>"dsadas"}, "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '{\"{:class=>\\\"form-control\\\", :size=>\\\"20x10\\\", :style=>\\\"resize:none\\\"}\"=>\"dsadas\"}', '2017-10-26 18:19:13', '2017-10-26 18:19:13')[0m
+  [1m[35m (51.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 81ms (ActiveRecord: 57.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:19:13 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.8ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 95ms (Views: 78.6ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:19:22 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mbidA4D8Js+xUNvpg49aKCpYGfc6hMHpzgD6yZ2IaeL4nwtdO1DphLpwG4apNZFRkuH0AGt767rAJZrOJeVlZA==", "usertext"=>{"{:class=>\"form-control\", :size=>\"20x10\", :style=>\"resize:none\"}"=>"dwwwwwwwwwwwwwwwdw"}, "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (3.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '{\"{:class=>\\\"form-control\\\", :size=>\\\"20x10\\\", :style=>\\\"resize:none\\\"}\"=>\"dwwwwwwwwwwwwwwwdw\"}', '2017-10-26 18:19:22', '2017-10-26 18:19:22')[0m
+  [1m[35m (104.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 138ms (ActiveRecord: 112.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:19:22 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 110ms (Views: 97.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:20:26 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.7ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 63ms (Views: 50.8ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:20:29 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zmZiiwFJ0vf0Q3D5otn/RGcdLnk+ZLq5U53DG+MDnqKvQfTVuuUdvP9jsJaIYzQ936TDjm+bkOpduKMcW26SJA==", "usertext"=>["adsadasd"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"adsadasd\"]', '2017-10-26 18:20:29', '2017-10-26 18:20:29')[0m
+  [1m[35m (259.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 297ms (ActiveRecord: 265.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:20:29 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 106ms (Views: 94.0ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:20:43 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rcU951dEtNhQ0Zi/XW3zlJ9nUJiNIvRpe8jnEJmJtFDM4qu57Oh7k1vxWNB31zjtJ969b9zd3jp17YcXIeS41g==", "usertext"=>["dsad"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dsad\"]', '2017-10-26 18:20:43', '2017-10-26 18:20:43')[0m
+  [1m[35m (186.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 212ms (ActiveRecord: 190.3ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:20:43 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 116ms (Views: 102.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:20:48 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1izdO0FNidMqvDiihEpTPUcMuKlsJ5nOBH8AV8eAjXy3C0tl+uFGmCGc+M2u8JhE/7VVXj3Ys50KWmBQf+2B+g==", "usertext"=>{"{:class=>\"form-control\", :size=>\"20x10\", :style=>\"resize:none\"}"=>"wwwwwwwwwwwww"}, "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (3.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '{\"{:class=>\\\"form-control\\\", :size=>\\\"20x10\\\", :style=>\\\"resize:none\\\"}\"=>\"wwwwwwwwwwwww\"}', '2017-10-26 18:20:48', '2017-10-26 18:20:48')[0m
+  [1m[35m (867.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 903ms (ActiveRecord: 878.3ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:20:49 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.7ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 54ms (Views: 41.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:22:12 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 60ms (Views: 48.8ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:22:14 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"deBGU9AsE8DBwoX6fq0YlBYb8S0uEjHsMx089/5Bmc8Ux9ANa4Dci8riRZVUF9PtrqIc2n/tG789OFzwRiyVSQ==", "usertext"=>["dasdasdasd"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dasdasdasd\"]', '2017-10-26 18:22:14', '2017-10-26 18:22:14')[0m
+  [1m[35m (268.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 282ms (ActiveRecord: 271.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:22:15 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 98ms (Views: 86.2ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:22:21 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAzH9P1mZjp3WPH0rAwgihB0H1MOZ0mkvEvlpaXqdN8pK1GqRsqpcXx4MZuGtuvzqM3ypF+YY/eyboWiHYd4WQ==", "usertext"=>["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"]', '2017-10-26 18:22:21', '2017-10-26 18:22:21')[0m
+  [1m[35m (130.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 141ms (ActiveRecord: 132.4ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:22:21 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.1ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 97ms (Views: 82.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:23:34 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (35.5ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Comment::ActiveRecord_Relation:0x007f8df1726718>
+Did you mean?  to_set
+               to_ary):
+    44:   <% end %>
+    45: 
+    46: 
+    47:   <%= form_for @comment, html: { multipart: true } do |book| %>
+    48: 
+    49:   <% end %>
+    50:   
+  
+app/views/books/show.html.erb:47:in `_app_views_books_show_html_erb__2180548874226673223_70123808944500'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:24:03 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (26.9ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Comment::ActiveRecord_Relation:0x007f8df26ce940>
+Did you mean?  to_set
+               to_ary):
+    44:   <% end %>
+    45: 
+    46: 
+    47:   <%= form_for @comment do |comment| %>
+    48: 
+    49:   <% end %>
+    50:   
+  
+app/views/books/show.html.erb:47:in `_app_views_books_show_html_erb__2180548874226673223_70123817166280'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:27:00 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2 LIMIT 11[0m
+  [1m[36mCACHE Hist1 Load (0.0ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2 LIMIT 11[0m  [["book_id", 2], ["LIMIT", 11]]
+  [1m[36mCACHE Hist1 Load (0.0ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2 LIMIT 11[0m  [["book_id", 2], ["LIMIT", 11]]
+  [1m[36mCACHE Hist1 Load (0.0ms)[0m  [1m[34mSELECT  `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2 LIMIT 11[0m  [["book_id", 2], ["LIMIT", 11]]
+  Rendered books/show.html.erb within layouts/application (125.0ms)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 4.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<#<Class:0x007f8df21c94e0>:0x007f8df21aed70>
+Did you mean?  comments_new_path):
+    44:   <% end %>
+    45: 
+    46: 
+    47:   <%= form_for @comment1 do |comment| %>
+    48:       <%= f.text_field(:usertext) %>
+    49:   <% end %>
+    50:   
+  
+app/views/books/show.html.erb:47:in `_app_views_books_show_html_erb__2180548874226673223_70123814539160'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:27:57 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 95ms (Views: 82.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:28:33 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 76ms (Views: 61.3ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:28:35 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ur8IG1qG332triNyNYEOjTiSkWfNOivnE+1J3ASUuFozmJ5F4SoQNqaO4x0fO8X0gCt8kJzFAbQdyCnbvPm03A==", "usertext"=>["dsadsad"], "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', '[\"dsadsad\"]', '2017-10-26 18:28:35', '2017-10-26 18:28:35')[0m
+  [1m[35m (233.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 259ms (ActiveRecord: 238.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:28:36 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 106ms (Views: 93.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:29:41 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_field' for nil:NilClass):
+    35:   <div class="form-group">
+    36:     <label class="form-control-label" for="formGroupExampleInput2"><%= current_user.email %></label>
+    37:     <%= text_area(:usertext, params[:usertext], :class => 'form-control', size: '20x10', style: 'resize:none') %>   
+    38:     <%= comment.text_field(:usertext) %>    
+    39:   </div>
+    40:   <div class="text-center">
+    41:    <%= submit_tag("Comment", :class => "btn btn-primary") %>
+  
+app/views/books/show.html.erb:38:in `block in _app_views_books_show_html_erb__2180548874226673223_70123805630580'
+app/views/books/show.html.erb:34:in `_app_views_books_show_html_erb__2180548874226673223_70123805630580'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:30:13 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_field' for nil:NilClass):
+    35:   <div class="form-group">
+    36:     <label class="form-control-label" for="formGroupExampleInput2"><%= current_user.email %></label>
+    37:     <%= text_area(:usertext, params[:usertext], :class => 'form-control', size: '20x10', style: 'resize:none') %>   
+    38:     <%= comment.text_field(:usertext, :class => "form-control", :placeholder => "Book author goes here") %>    
+    39:   </div>
+    40:   <div class="text-center">
+    41:    <%= submit_tag("Comment", :class => "btn btn-primary") %>
+  
+app/views/books/show.html.erb:38:in `block in _app_views_books_show_html_erb__2180548874226673223_70123817264240'
+app/views/books/show.html.erb:34:in `_app_views_books_show_html_erb__2180548874226673223_70123817264240'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:30:45 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_area' for nil:NilClass):
+    35:   <div class="form-group">
+    36:     <label class="form-control-label" for="formGroupExampleInput2"><%= current_user.email %></label>
+    37:     <%= text_area(:usertext, params[:usertext], :class => 'form-control', size: '20x10', style: 'resize:none') %>   
+    38:     <%= comment.text_area(:usertext, :class => "form-control", :placeholder => "Book author goes here") %>    
+    39:   </div>
+    40:   <div class="text-center">
+    41:    <%= submit_tag("Comment", :class => "btn btn-primary") %>
+  
+app/views/books/show.html.erb:38:in `block in _app_views_books_show_html_erb__2180548874226673223_70123765718200'
+app/views/books/show.html.erb:34:in `_app_views_books_show_html_erb__2180548874226673223_70123765718200'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:30:53 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_area' for nil:NilClass):
+    35:   <div class="form-group">
+    36:     <label class="form-control-label" for="formGroupExampleInput2"><%= current_user.email %></label>
+    37:     <%= text_area(:usertext, params[:usertext], :class => 'form-control', size: '20x10', style: 'resize:none') %>   
+    38:     <%= comment.text_area(:usertext, :class => "form-control", :placeholder => "Book author goes here") %>    
+    39:   </div>
+    40:   <div class="text-center">
+    41:    <%= submit_tag("Comment", :class => "btn btn-primary") %>
+  
+app/views/books/show.html.erb:38:in `block in _app_views_books_show_html_erb__2180548874226673223_70123803098220'
+app/views/books/show.html.erb:34:in `_app_views_books_show_html_erb__2180548874226673223_70123803098220'
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:31:10 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.2ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 91ms (Views: 75.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:38:00 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 92ms (Views: 79.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:38:03 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 45ms (Views: 38.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:38:05 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/home/malovichko/books/app/views/books/new.html.erb:10: syntax error, unexpected '<', expecting ')'
+  <div class="text-center">
+   ^
+/home/malovichko/books/app/views/books/new.html.erb:11: syntax error, unexpected '<'
+   <%= book.submit("Crate Book", :
+    ^
+/home/malovichko/books/app/views/books/new.html.erb:11: syntax error, unexpected ')', expecting keyword_end
+:class => "btn btn-primary") );@output_buffer.safe_append='
+                              ^
+/home/malovichko/books/app/views/books/new.html.erb:16: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/books/new.html.erb:10: syntax error, unexpected '<', expecting ')'
+app/views/books/new.html.erb:11: syntax error, unexpected '<'
+app/views/books/new.html.erb:11: syntax error, unexpected ')', expecting keyword_end
+app/views/books/new.html.erb:16: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:38:22 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (219.9ms)
+  Rendered books/new.html.erb within layouts/application (222.9ms)
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `book' for #<#<Class:0x007f8df21c94e0>:0x007f8dec3ba778>
+Did you mean?  @book):
+    1: <div class="form-group">
+    2:     <label class="form-control-label" for="formGroupExampleInput">Choose your image:</label>
+    3:     <%= book.file_field(:image, :class => "form-control-file") %>
+    4:   </div>
+    5: 
+    6:   <div class="form-group">
+  
+app/views/books/_form.html.erb:3:in `_app_views_books__form_html_erb___2088942198677130769_70123765170980'
+app/views/books/new.html.erb:7:in `block in _app_views_books_new_html_erb__2038616516671081648_70123765225680'
+app/views/books/new.html.erb:3:in `_app_views_books_new_html_erb__2038616516671081648_70123765225680'
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:39:09 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (273.5ms)
+  Rendered books/new.html.erb within layouts/application (275.4ms)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `book' for #<#<Class:0x007f8df21c94e0>:0x007f8df1c326f8>
+Did you mean?  @book):
+    1: <div class="form-group">
+    2:     <label class="form-control-label" for="formGroupExampleInput">Choose your image:</label>
+    3:     <%= book.file_field(:image, :class => "form-control-file") %>
+    4:   </div>
+    5: 
+    6:   <div class="form-group">
+  
+app/views/books/_form.html.erb:3:in `_app_views_books__form_html_erb___2088942198677130769_70123811461340'
+app/views/books/new.html.erb:5:in `block in _app_views_books_new_html_erb__2038616516671081648_70123811608680'
+app/views/books/new.html.erb:3:in `_app_views_books_new_html_erb__2038616516671081648_70123811608680'
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:42:28 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/new.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.5ms)
+
+
+  
+SyntaxError (/home/malovichko/books/app/views/books/new.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting =>
+l: 'form', locals: {:book book}) );@output_buffer.safe_appen
+                              ^
+/home/malovichko/books/app/views/books/new.html.erb:12: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;	 end 
+         	    ^
+/home/malovichko/books/app/views/books/new.html.erb:14: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/malovichko/books/app/views/books/new.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/books/new.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting =>
+app/views/books/new.html.erb:12: syntax error, unexpected keyword_end, expecting ')'
+app/views/books/new.html.erb:14: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/books/new.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:42:50 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (223.7ms)
+  Rendered books/new.html.erb within layouts/application (227.1ms)
+Completed 200 OK in 297ms (Views: 289.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2017-10-26 21:43:09 +0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZW6uZ80cIDeiaPr3iG/Lgod8x4VpvA/0DbHgs1b73/AESTg5drDvfKlIOpii1QD7P8UqcjhDJacDlIC07pbTdg==", "book"=>{"name"=>"Book1", "rating"=>"2", "author"=>"Noober", "description"=>"NooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNoobervvv"}, "commit"=>"Crate Book"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `books` (`name`, `rating`, `description`, `author`, `created_at`, `updated_at`) VALUES ('Book1', 2, 'NooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNoobervvv', 'Noober', '2017-10-26 18:43:09', '2017-10-26 18:43:09')[0m
+  [1m[35m (73.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 91ms (ActiveRecord: 75.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:43:10 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 116ms (Views: 102.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:44:00 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (1.2ms)
+  Rendered books/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 45ms (Views: 40.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:44:05 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 80ms (Views: 67.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/books/16/edit" for 127.0.0.1 at 2017-10-26 21:44:07 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 63ms (Views: 50.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:44:11 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 42ms (Views: 35.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/books/16/edit" for 127.0.0.1 at 2017-10-26 21:44:51 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.1ms)
+  Rendered books/edit.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 99ms (Views: 89.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:44:55 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (1.4ms)
+  Rendered books/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 56ms (Views: 50.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:44:57 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 100ms (Views: 85.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:45:29 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 72ms (Views: 64.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:45:37 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 47ms (Views: 39.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:45:37 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:45:41 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:45:41 +0300
+  
+  Rendering books/index.html.erb within layouts/application
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mBook Load (13.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 120ms (Views: 98.1ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:45:43 +0300
+Processing by BooksController#show as HTML
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:45:43 +0300
+  Parameters: {"id"=>"17"}
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (9.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 128ms (Views: 97.9ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:45:43 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:45:45 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:45:45 +0300
+  Rendering books/index.html.erb within layouts/application
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mBook Load (19.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 114ms (Views: 72.1ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2017-10-26 21:45:48 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.8ms)
+  Rendered books/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 59ms (Views: 51.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:45:49 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 100ms (Views: 73.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/books/16/edit" for 127.0.0.1 at 2017-10-26 21:45:50 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (4.5ms)
+  Rendered books/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 92ms (Views: 78.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:45:52 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 73ms (Views: 63.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:46:20 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:46:22 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 47ms (Views: 39.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:46:22 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/books/17/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:46:30 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WnQVUnmlu3bjYLyONJH4x7XaaGa6QqR9HI40G/qlKMG2rXSL98RojEBhPsqLgzq83UrvEzY8E9Ryh5W1sfEksw==", "usertext"=>["dasd"], "commit"=>"Comment", "method"=>"post", "id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (17, 'np.zaporoje.sb2@gmail.com', '[\"dasd\"]', '2017-10-26 18:46:30', '2017-10-26 18:46:30')[0m
+  [1m[35m (357.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/17
+Completed 302 Found in 369ms (ActiveRecord: 359.9ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:46:30 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 57ms (Views: 45.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:46:30 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:47:11 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.8ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 65ms (Views: 53.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:47:11 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:47:16 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 57ms (Views: 47.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:47:16 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:47:17 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:47:17 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mBook Load (12.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 99ms (Views: 73.2ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:47:18 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+Started GET "/images/original/missing.png" for 127.0.0.1 at 2017-10-26 21:47:18 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/images/original/missing.png"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 169ms (Views: 150.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/books/17/edit" for 127.0.0.1 at 2017-10-26 21:47:19 +0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (5.6ms)
+  Rendered books/edit.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 92ms (Views: 76.4ms | ActiveRecord: 2.3ms)
+
+
+Started PATCH "/books/17" for 127.0.0.1 at 2017-10-26 21:47:25 +0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ALRQKvmU1NqIYnB6gpYXlWLugJY0z3Dgaw5zn+fKYPdhk8Z0QjgbkYNCsBWoLNzs2ldtYWUwWrNlKxOYX6dscQ==", "book"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f8dec4fdbd0 @tempfile=#<Tempfile:/tmp/RackMultipart20171026-9703-27of1.png>, @original_filename="2.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"book[image]\"; filename=\"2.png\"\r\nContent-Type: image/png\r\n">, "name"=>"Book1", "rating"=>"2", "author"=>"Noober", "description"=>"NooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNooberNoobervvv"}, "commit"=>"UpdateBook", "id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-ubk7dy.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]'
+Command :: convert '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]' -auto-orient -resize "500x500" '/tmp/515b78d57f6e06fa050d2278ac5698d120171026-9703-1pn1tmw'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]'
+Command :: convert '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-16c5lpa.png[0]' -auto-orient -resize "900x900>" '/tmp/515b78d57f6e06fa050d2278ac5698d120171026-9703-pvtbrl'
+Command :: file -b --mime '/tmp/c81e728d9d4c2f636f067f89cc14862c20171026-9703-1ozfeo.png'
+  [1m[35mSQL (30.7ms)[0m  [1m[33mUPDATE `books` SET `image_file_name` = '2.png', `image_content_type` = 'image/png', `image_file_size` = 579290, `image_updated_at` = '2017-10-26 18:47:25', `updated_at` = '2017-10-26 18:47:26' WHERE `books`.`id` = 17[0m
+  [1m[35m (77.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1054ms (ActiveRecord: 108.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:47:26 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 57ms (Views: 45.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:47:28 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 54ms (Views: 41.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:47:32 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 113ms (Views: 99.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:49:58 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 116ms (Views: 102.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:50:00 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (4.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 100ms (Views: 78.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:50:01 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (1.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 54ms (Views: 47.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/books/17/take" for 127.0.0.1 at 2017-10-26 21:50:02 +0300
+Processing by BooksController#take as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `books` SET `usertake` = 'np.zaporoje.sb2@gmail.com', `take` = 'Is taken by: ', `updated_at` = '2017-10-26 18:50:02' WHERE `books`.`id` = 17[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `hist1s` (`whotake`, `whentake`, `book_id`, `created_at`, `updated_at`) VALUES ('np.zaporoje.sb2@gmail.com', '2017-10-26 18:50:02 UTC', 17, '2017-10-26 18:50:02', '2017-10-26 18:50:02')[0m
+  [1m[35m (365.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 454ms (ActiveRecord: 418.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:50:02 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 87ms (Views: 73.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 21:50:07 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (0.2ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 29.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:50:12 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 116ms (Views: 100.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:53:09 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.6ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 64ms (Views: 53.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:53:19 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (2.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 103ms (Views: 81.0ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:54:33 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 64ms (Views: 53.7ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/books/17/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:54:37 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MvKzG7OVw8UTr3s9XenRvc7gLAKk7nGUWNiys2GPbULeK9LCPfQQP7Cu+Xni+xPGpnCrdyiQxj020RMdKtthMA==", "usertext"=>"dsadasd", "commit"=>"Comment", "method"=>"post", "id"=>"17"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (17, 'np.zaporoje.sb2@gmail.com', 'dsadasd', '2017-10-26 18:54:37', '2017-10-26 18:54:37')[0m
+  [1m[35m (45.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/17
+Completed 302 Found in 73ms (ActiveRecord: 52.8ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:54:37 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 100ms (Views: 84.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:55:09 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 56ms (Views: 46.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:56:53 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 66ms (Views: 52.7ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/books/2/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:56:59 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LsrhCnNMmo8qqd3XsMMC+mCzfYKHc9g1+cFd8fb3mwvAi+lBDDIvD7SW7C9yZObO9MBiaCj2sEr5oMHt2fcQxQ==", "usertext"=>"dsa", "commit"=>"Comment", "method"=>"post", "id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (2, 'np.zaporoje.sb2@gmail.com', 'dsa', '2017-10-26 18:56:59', '2017-10-26 18:56:59')[0m
+  [1m[35m (89.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 107ms (ActiveRecord: 93.1ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 21:56:59 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 102ms (Views: 86.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:57:01 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 21:57:02 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (0.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/books/16/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:57:13 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dfY/hZ+x1l3NQ5PiKtZZuKD3zRMD+ptDQK1VYeNo8UPUcSgsJUBXdKD3srW+YMp5eaoX4bDArTtlSZS+Bk7McA==", "usertext"=>"TEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENT", "commit"=>"Comment", "method"=>"post", "id"=>"16"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (16, 'np.zaporoje.sb2@gmail.com', 'TEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENT', '2017-10-26 18:57:13', '2017-10-26 18:57:13')[0m
+  [1m[35m (380.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/16
+Completed 302 Found in 410ms (ActiveRecord: 386.1ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 21:57:13 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (1.1ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 104ms (Views: 90.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 21:58:20 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (0.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 66ms (Views: 54.6ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/books/16/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:58:23 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j1EW3pKN3MlpeLlSCxb2LP+tI9cVjIzEY+uXUgV48ubudoCAKSETgmJYeT0hrD1VRxTOIERzppdtzvdVvRX+YA==", "usertext"=>"TEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENT", "commit"=>"Comment", "method"=>"post", "id"=>"16"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (1.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (16, 'np.zaporoje.sb2@gmail.com', 'TEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENTTEST COMMENT', '2017-10-26 18:58:23', '2017-10-26 18:58:23')[0m
+  [1m[35m (146.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/16
+Completed 302 Found in 170ms (ActiveRecord: 151.7ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 21:58:23 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (0.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 96ms (Views: 85.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 21:58:30 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 117ms (Views: 103.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:58:33 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (3.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 88ms (Views: 71.9ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/books/17/create_comment?method=post" for 127.0.0.1 at 2017-10-26 21:58:39 +0300
+Processing by BooksController#create_comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OgrtIikPloatD/PMdKSsFJpt3eDk1cFDXfjVxqFdCnfW04z7p25FfA4OcYjLtm5v8v1alWirduoz8XRo6gkGBQ==", "usertext"=>"TEST COMMENT", "commit"=>"Comment", "method"=>"post", "id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `comments` (`book_id`, `username`, `usertext`, `created_at`, `updated_at`) VALUES (17, 'np.zaporoje.sb2@gmail.com', 'TEST COMMENT', '2017-10-26 18:58:39', '2017-10-26 18:58:39')[0m
+  [1m[35m (56.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/books/17
+Completed 302 Found in 73ms (ActiveRecord: 60.6ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:58:39 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (1.3ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 107ms (Views: 95.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 21:59:18 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 57ms (Views: 42.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 22:00:44 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 57ms (Views: 44.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 22:03:12 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 56ms (Views: 46.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/books/17" for 127.0.0.1 at 2017-10-26 22:03:13 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 17 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 17[0m
+  [1m[36mHist1 Load (0.8ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 17[0m
+  Rendered books/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 64ms (Views: 51.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 22:03:16 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 102ms (Views: 87.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 22:03:37 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 71ms (Views: 57.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 22:03:38 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 55ms (Views: 49.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/books/16" for 127.0.0.1 at 2017-10-26 22:03:42 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 16[0m
+  [1m[36mHist1 Load (0.4ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 16[0m
+  Rendered books/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 80ms (Views: 69.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-26 22:03:53 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY rating DESC LIMIT 5[0m
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` LIMIT 20 OFFSET 0[0m
+  Rendered books/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 125ms (Views: 108.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 22:05:07 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.6ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 60ms (Views: 45.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 22:11:07 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.1ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 136ms (Views: 120.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 22:11:41 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.5ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 65ms (Views: 55.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 22:12:01 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (0.9ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 78ms (Views: 65.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2017-10-26 22:13:28 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 2[0m
+  [1m[36mHist1 Load (1.0ms)[0m  [1m[34mSELECT `hist1s`.* FROM `hist1s` WHERE `hist1s`.`book_id` = 2[0m
+  Rendered books/show.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 79ms (Views: 66.2ms | ActiveRecord: 3.9ms)
+
+

@@ -1,32 +1,9 @@
 <h1 class="text-center myh1">Create book:</h1>
 
-<%= form_for @book, html: { multipart: true } do |book| %>
-
-
-<form>
+<%= form_for @book, html: { multipart: true } do |book| %> 
   
-  <div class="form-group">
-    <label class="form-control-label" for="formGroupExampleInput">Choose your image:</label>
-    <%= book.file_field(:image, :class => "form-control-file") %>
-  </div>
+  <%= render(partial: 'form', locals: {book: book}) %>
 
-  <div class="form-group">
-    <label class="form-control-label" for="formGroupExampleInput">Enter book name:</label>
-    <%= book.text_field(:name, :class => "form-control", :placeholder => "Book name goes here, limit 20 symbols") %>
-  </div>
-  <div class="form-group">
-    <label class="form-control-label" for="formGroupExampleInput">Enter book rating:</label>
-    <%= book.text_field(:rating, class: 'form-control' ) %>
-  </div>
-  <div class="form-group">
-    <label class="form-control-label" for="formGroupExampleInput2">Book author</label>
-    <%= book.text_field(:author, :class => "form-control", :placeholder => "Book author goes here") %>
-  </div>
-  <div class="form-group">
-    <label class="form-control-label" for="formGroupExampleInput2">Book description</label>
-    <%= book.text_area(:description, :class => "form-control", :placeholder => "Book description goes here", :size => '20x10',
-                       :style => "resize:none;") %>
-  </div>
   <div class="text-center">
    <%= book.submit("Crate Book", :class => "btn btn-primary") %>
   </div>

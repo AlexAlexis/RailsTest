@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171025094422) do
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "book_id"
     t.string "username"
-    t.string "usertext"
+    t.text "usertext"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_comments_on_book_id"

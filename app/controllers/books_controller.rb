@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def show   
    @history = Hist1.where(book_id: @book.id)
+   @comment1 = Comment.new
    @comment = Comment.where(book_id: @book.id)    
   end
 
