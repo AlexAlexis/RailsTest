@@ -16,20 +16,21 @@
   <%= truncate(@book.description, length: 3300, escape: false) {link_to('continue', '#')} %>
   </div>
   </div>
+  <h1>Book id:  <%= @book.id %></h1>
  
   <div class="container">
   <% @comment.each do |comment| %>
   <div class="media">
-  <!-- <img class="mr-3" src="" alt="Generic placeholder image"> -->
   <div class="media-body">
     <h5 class="mt-0"><strong><%= comment.username %></strong><p><%= comment.created_at.strftime("%m/%d/%Y %R") %></p></h5>
     <%= comment.usertext %>
+    <% if comment.can_delete?(current_user.email) %>
+    <%= link_to('Delete', delete_comment_book_path(comment), method: 'post', class: 'btn btn-danger btn-sm', data: {confirm: "Delete Commet?"}) %>
+    <% end %>
    </div>
    </div>
    <% end %>
-   </div>
-
-   <!-- params[:usertext] <% @book_id == params[:book_id] %> -->
+   </div>  
 
   <%= form_tag(controller: 'books', action: 'create_comment', method: 'post') do |comment| %>
   <div class="form-group">

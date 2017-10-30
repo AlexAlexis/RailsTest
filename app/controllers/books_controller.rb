@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   before_action :find_books, only: [:show, :edit, :update, 
     :delete, :take, :return, :create_comment]
-
+  before_action :store_location, only: [:delete_comment]
   def index
   	@books = Book.all.paginate(page: params[:page], per_page: 20)
     @top = Book.first_five
@@ -75,6 +75,14 @@ class BooksController < ApplicationController
      redirect_to(book_path)   
   end
 
+  def delete_comment       
+    @comment = Comment.find(params[:id])
+    book1 = Book.find(@comment.book_id)       
+    @comment.destroy
+     flash[:notice] = "Comment deleted"    
+    redirect_to(book_path(book1))    #redirect_to(book_path)
+  end
+
   private
 
   def book_params
@@ -86,7 +94,11 @@ class BooksController < ApplicationController
   end
 
   def comment_params
-    #params.require(:comment).permit(:usertext)
-  end
+    params.require(:commnt).permit(:username,:book_id, :usertext)      
+    end  
+
+    def store_location
+    session[:return_to] = request.fullpath
+    end
 
 end
